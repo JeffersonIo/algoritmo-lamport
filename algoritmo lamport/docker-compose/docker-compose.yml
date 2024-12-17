@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  microservice_1:
+    build:
+      context: ../microservice_1
+    ports:
+      - "5001:5000"
+    networks:
+      - lamport_network
+
+  microservice_2:
+    build:
+      context: ../microservice_2
+    ports:
+      - "5002:5000"
+    networks:
+      - lamport_network
+
+networks:
+  lamport_network:
+    driver: bridge
